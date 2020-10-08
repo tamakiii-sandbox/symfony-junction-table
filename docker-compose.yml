@@ -9,6 +9,8 @@ services:
     build: ./nginx
     ports:
       - 8080:80
+    volumes:
+      - .:/work
 
   mysql:
     image: mysql:8.0.21
