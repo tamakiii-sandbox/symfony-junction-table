@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,4 +51,8 @@ class UserGroup
         $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getUsers(): Collection
+    {
+        return $this->user;
+    }
 }

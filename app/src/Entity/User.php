@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -58,4 +59,13 @@ class User
         $this->group = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getGroup(): Collection
+    {
+        return $this->group;
+    }
 }
