@@ -16,4 +16,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN curl -sS https://get.symfony.com/cli/installer | bash && \
     mv /root/.symfony/bin/symfony /usr/local/sbin/symfony
 
+RUN docker-php-ext-install pdo_mysql
+
 WORKDIR /work/app
