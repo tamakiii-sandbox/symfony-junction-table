@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  php:
+    build: .
+    volumes:
+      - .:/work
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 8080:80
+    volumes:
+      - .:/work
+
+  mysql:
+    image: mysql:8.0.21
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: pass
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql:
+    driver: local
